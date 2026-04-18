@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Data Visualization - SVG House and Garden</title>
+	<style>
+		/* base color variables used across the page */
+		:root {
+			--bg-top: #f5fbff;
+			--bg-bottom: #fffef6;
+			--card: #ffffff;
+			--ink: #243447;
+			--muted: #5f6b7a;
+			--accent: #eb4a3f;
+			--border: #d9e3ef;
+			--shadow: 0 14px 34px rgba(35, 57, 82, 0.12);
+			--section-tint: #f8fbff;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		/* soft layered background for the whole page */
+		body {
+			margin: 0;
+			font-family: "Segoe UI", "Trebuchet MS", "Helvetica Neue", sans-serif;
+			color: var(--ink);
+			background:
+				radial-gradient(circle at 8% 8%, #dff2ff 0%, transparent 45%),
+				radial-gradient(circle at 92% 92%, #fff2d9 0%, transparent 42%),
+				linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+			line-height: 1.55;
+		}
+
+		/* centers the full assignment content */
+		.page {
+			width: min(1180px, 94vw);
+			margin: 28px auto 54px;
+			display: grid;
+			gap: 20px;
+		}
+
+		/* intro panel with title and summary */
+		.hero {
+			text-align: center;
+			background: linear-gradient(135deg, #ffffff 0%, #f3f9ff 100%);
+			border: 1px solid var(--border);
+			border-radius: 18px;
+			padding: 22px 18px;
+			box-shadow: var(--shadow);
+		}
+
+		.hero h1 {
+			margin: 0;
+			font-size: clamp(1.4rem, 2.2vw, 2rem);
+			letter-spacing: 0.4px;
+		}
+
+		.hero p {
+			margin: 8px auto 0;
+			color: var(--muted);
+			max-width: 760px;
+			font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+		}
+
+		/* stacks content sections with spacing */
+		.grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 18px;
+		}
+
+		/* common card styling for each section */
+		section {
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 18px;
+			box-shadow: 0 8px 20px rgba(35, 57, 82, 0.08);
+		}
+
+		section:nth-of-type(odd) {
+			background: linear-gradient(180deg, #ffffff 0%, var(--section-tint) 100%);
+		}
+
+		h2 {
+			margin: 0 0 12px;
+			font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+			border-left: 6px solid #ffbc5e;
+			padding-left: 10px;
+		}
+
+		p {
+			margin: 8px 0;
+		}
+
+		ul {
+			margin: 8px 0 0 18px;
+			padding: 0;
+		}
+
+		li {
+			margin: 6px 0;
+		}
+
+		/* framed area that holds each svg */
+		.svg-wrap {
+			width: 100%;
+			border: 1px solid #c9d8e8;
+			border-radius: 12px;
+			padding: 8px;
+			background: linear-gradient(180deg, #fbfdff 0%, #eef7ff 100%);
+			overflow: hidden;
+		}
+
+		/* ensures svg scales to screen width */
+		.svg-wrap svg {
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		/* image styling for dom screenshot */
+		.responsive-img {
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+			border: 1px solid #ccd7e5;
+			border-radius: 12px;
+			display: block;
+			background: #f9fbfd;
+		}
+
+		.caption {
+			margin-top: 8px;
+			font-size: 0.92rem;
+			color: var(--muted);
+			font-style: italic;
+		}
+
+		@media (max-width: 720px) {
+			.page {
+				margin-top: 16px;
+			}
+
+			section {
+				padding: 14px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main class="page">
+		<!-- top heading area for the assignment -->
+		<header class="hero">
+			<h1>Data Visualization Assignment: SVG House and Garden</h1>
+			<p>Responsive vector artwork, coordinate mapping, and DOM structure verification in one clean single-file web page.</p>
+		</header>
+
+		<!-- section 1 shows the main house scene -->
+		<section>
+			<h2>1. Original Artwork: House and Garden</h2>
+			<div class="svg-wrap">
+				<!-- full house and garden illustration -->
+				<svg viewBox="0 0 800 500" role="img" aria-label="Cartoon house and garden illustration">
+					<!-- background layers: sky and grass -->
+					<rect x="0" y="0" width="800" height="500" fill="#9fd9ff" />
+					<rect x="0" y="355" width="800" height="145" fill="#85cd67" />
+
+					<!-- sun icon with four rays -->
+					<circle cx="100" cy="100" r="48" fill="#ffd95a" stroke="#f5a623" stroke-width="6" />
+					<line x1="100" y1="35" x2="100" y2="10" stroke="#f5a623" stroke-width="5" />
+					<line x1="100" y1="165" x2="100" y2="190" stroke="#f5a623" stroke-width="5" />
+					<line x1="35" y1="100" x2="10" y2="100" stroke="#f5a623" stroke-width="5" />
+					<line x1="165" y1="100" x2="190" y2="100" stroke="#f5a623" stroke-width="5" />
+
+					<!-- cloud shapes near top-right -->
+					<ellipse cx="690" cy="86" rx="58" ry="32" fill="#ffffff" opacity="0.92" />
+					<ellipse cx="730" cy="98" rx="48" ry="24" fill="#ffffff" opacity="0.92" />
+
+					<!-- core house shapes: roof, walls, door -->
+					<polygon points="220,150 400,50 580,150" fill="#f76b59" stroke="#b44038" stroke-width="5" />
+					<rect x="250" y="150" width="300" height="210" fill="#fff4a3" stroke="#c89a63" stroke-width="5" rx="6" />
+					<rect x="370" y="245" width="66" height="115" fill="#8d5b3f" stroke="#5b3a28" stroke-width="4" rx="5" />
+					<circle cx="423" cy="300" r="5" fill="#efdebe" />
+					<polygon points="382,360 424,360 468,500 338,500" fill="#ceb79b" stroke="#9c8468" stroke-width="3" />
+
+					<!-- both windows drawn in one translated group -->
+					<g transform="translate(480, 180)" fill="#d9f1ff" stroke="#4d7b99" stroke-width="4">
+						<rect x="0" y="0" width="64" height="64" rx="4" />
+						<line x1="32" y1="0" x2="32" y2="64" />
+						<line x1="0" y1="32" x2="64" y2="32" />
+
+						<rect x="-220" y="0" width="64" height="64" rx="4" />
+						<line x1="-188" y1="0" x2="-188" y2="64" />
+						<line x1="-220" y1="32" x2="-156" y2="32" />
+					</g>
+
+					<!-- fence appears only on the right side -->
+					<rect x="620" y="320" width="160" height="10" fill="#e8d6b3" stroke="#aa8662" stroke-width="2" />
+					<rect x="620" y="338" width="160" height="10" fill="#e8d6b3" stroke="#aa8662" stroke-width="2" />
+					<rect x="630" y="305" width="10" height="55" fill="#e8d6b3" stroke="#aa8662" stroke-width="2" />
+					<rect x="665" y="305" width="10" height="55" fill="#e8d6b3" stroke="#aa8662" stroke-width="2" />
+					<rect x="700" y="305" width="10" height="55" fill="#e8d6b3" stroke="#aa8662" stroke-width="2" />
+					<rect x="735" y="305" width="10" height="55" fill="#e8d6b3" stroke="#aa8662" stroke-width="2" />
+					<rect x="770" y="305" width="10" height="55" fill="#e8d6b3" stroke="#aa8662" stroke-width="2" />
+
+					<!-- remaining tree on the right -->
+
+					<rect x="650" y="280" width="14" height="88" fill="#7b4e2c" />
+					<circle cx="657" cy="255" r="30" fill="#4fae55" />
+					<circle cx="635" cy="270" r="24" fill="#56bb5c" />
+					<circle cx="678" cy="270" r="24" fill="#56bb5c" />
+
+
+					<!-- flower bed replaces the removed left trees -->
+					<line x1="65" y1="370" x2="65" y2="338" stroke="#2f9440" stroke-width="4" />
+					<line x1="95" y1="370" x2="95" y2="334" stroke="#2f9440" stroke-width="4" />
+					<line x1="130" y1="370" x2="130" y2="340" stroke="#2f9440" stroke-width="4" />
+					<ellipse cx="59" cy="352" rx="8" ry="4" fill="#47b354" transform="rotate(-30 59 352)" />
+					<ellipse cx="71" cy="348" rx="8" ry="4" fill="#47b354" transform="rotate(28 71 348)" />
+					<ellipse cx="89" cy="350" rx="8" ry="4" fill="#47b354" transform="rotate(-30 89 350)" />
+					<ellipse cx="101" cy="345" rx="8" ry="4" fill="#47b354" transform="rotate(28 101 345)" />
+					<ellipse cx="124" cy="355" rx="8" ry="4" fill="#47b354" transform="rotate(-30 124 355)" />
+					<ellipse cx="136" cy="350" rx="8" ry="4" fill="#47b354" transform="rotate(28 136 350)" />
+					<circle cx="65" cy="336" r="6" fill="#ff5f7f" />
+					<circle cx="95" cy="332" r="6" fill="#ffcf4a" />
+					<circle cx="130" cy="338" r="6" fill="#8f7bff" />
+					<circle cx="65" cy="336" r="2.5" fill="#fff5a8" />
+					<circle cx="95" cy="332" r="2.5" fill="#fff5a8" />
+					<circle cx="130" cy="338" r="2.5" fill="#fff5a8" />
+				</svg>
+			</div>
+		</section>
+
+		<!-- sections 2 and 3 are displayed one under another -->
+		<div class="grid">
+			<!-- section 2 explains how the svg was built -->
+			<section>
+				<h2>2. Project Implementation</h2>
+				<p>The drawing is built from basic SVG primitives to show clear composition logic and coordinate placement.</p>
+				<ul>
+					<li><strong>&lt;rect&gt;</strong> creates the sky/ground blocks, house body, door, and window frames.</li>
+					<li><strong>&lt;circle&gt;</strong> is used for the sun, door handle, and tree canopy shapes.</li>
+					<li><strong>&lt;ellipse&gt;</strong> forms soft cloud shapes with a rounded cartoon style.</li>
+					<li><strong>&lt;line&gt;</strong> draws sun rays and window pane dividers.</li>
+					<li><strong>&lt;polygon&gt;</strong> creates the triangular roof with exact corner points.</li>
+					<li><strong>&lt;polyline&gt;</strong> is used in the coordinate annotation SVG where connector paths can be extended as needed.</li>
+					<li><strong>&lt;text&gt;</strong> is used for coordinate labels and technical element callouts.</li>
+					<li>A single <strong>&lt;g transform="translate(480, 180)"&gt;</strong> groups both windows with shared color/stroke styling and positions them together in one coordinate shift.</li>
+				</ul>
+			</section>
+
+			<!-- section 3 repeats the scene with coordinate labels -->
+			<section>
+				<h2>3. Coordinate Annotations: SVG Coordinate System</h2>
+				<div class="svg-wrap">
+					<img src="images/Coordinate Annotations image.png" alt="SVG coordinate annotations" class="responsive-img" />
+				</div>
+				<p class="caption">This image shows the coordinate map and key element anchors on the 800x500 canvas.</p>
+			</section>
+		</div>
+
+		<!-- section 4 shows dom inspection evidence -->
+		<section>
+			<h2>4. DOM Inspection</h2>
+			<img src="images/dom_screenshot.png" alt="DOM Tree Inspection" class="responsive-img" />
+			<p class="caption">This screenshot proves the SVG primitives and grouped elements are attached to the Document Object Model.</p>
+		</section>
+	</main>
+</body>
+</html>

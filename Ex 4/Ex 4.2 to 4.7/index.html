@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TV Brands Analysis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header class="modern-header">
+        <div class="header-container">
+            <div class="header-content">
+                <h1 class="header-title">All TV Brands</h1>
+                <p class="header-subtitle">Market Share Analysis 2026</p>
+            </div>
+            <div class="header-accent"></div>
+        </div>
+    </header>
+
+    <div class="dashboard-card">
+        <div class="chart-header">
+            <div>
+                <h2 class="chart-title">Brand Distribution</h2>
+                <p class="chart-description">Visualizing all TV brands in the 2026 dataset.</p>
+            </div>
+        </div>
+
+        <section class="cards-row" aria-label="Brand summary cards">
+            <article class="stat-box">
+                <span class="stat-number" id="card-total-brands">0</span>
+                <span class="stat-label">Total Brands</span>
+            </article>
+            <article class="stat-box">
+                <span class="stat-number" id="card-total-sold">0</span>
+                <span class="stat-label">Total Sold</span>
+            </article>
+            <article class="stat-box">
+                <span class="stat-number" id="card-top-brand">-</span>
+                <span class="stat-label">Top Brand</span>
+            </article>
+            <article class="stat-box">
+                <span class="stat-number" id="card-average-sold">0</span>
+                <span class="stat-label">Average / Brand</span>
+            </article>
+        </section>
+
+        <div id="bar-chart"></div>
+        <div id="tooltip" class="tooltip"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
