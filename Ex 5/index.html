@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5 - D3 Dashboard</title>
+    <link rel="icon" href="data:,">
+    <!-- Main visual theme and layout rules for the dashboard -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- D3 is loaded globally before the chart modules -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <main class="dashboard">
+        <!-- Intro section for the dashboard story -->
+        <header class="dashboard-header">
+            <h1>Exercise 5: Multi-Chart Dashboard</h1>
+            <p class="dashboard-summary">A clean, vertical storytelling layout that walks through energy use, spot prices, and TV size distribution one chart at a time.</p>
+        </header>
+
+        <!-- Chart containers are rendered by the JavaScript files below -->
+        <section class="chart-card">
+            <h2>Average Energy Use by Screen Technology (55")</h2>
+            <div id="bar-chart"></div>
+        </section>
+
+        <section class="chart-card">
+            <h2>ARE Spot Prices Over Time</h2>
+            <div id="line-chart"></div>
+        </section>
+
+        <section class="chart-card">
+            <h2>TV Brand Counts by Screen Size Category</h2>
+            <div id="donut-chart"></div>
+        </section>
+    </main>
+
+    <!-- Shared constants and chart loaders are ordered to avoid dependency issues -->
+    <script src="js/shared-constants.js"></script>
+    <script src="js/bar-chart.js"></script>
+    <script src="js/line-chart.js"></script>
+    <script src="js/donut-chart.js"></script>
+    <script src="js/load-data.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/* Core palette used across the dashboard */
+:root {
+    --bg: #f3f6f9;
+    --card: #ffffff;
+    --text: #12263a;
+    --muted: #4a6175;
+    --stroke: #d7e1ea;
+    --accent-1: #0466c8;
+    --accent-2: #2a9d8f;
+    --accent-3: #e76f51;
+    --shadow: 0 10px 24px rgba(17, 38, 59, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Page background and base typography */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top right, rgba(4, 102, 200, 0.08), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(42, 157, 143, 0.08), transparent 40%),
+        var(--bg);
+}
+
+.dashboard {
+    width: min(1200px, 94vw);
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Header block with soft red gradients */
+.dashboard-header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 84% 18%, rgba(255, 184, 193, 0.45), transparent 46%),
+        radial-gradient(circle at 16% 80%, rgba(255, 207, 214, 0.35), transparent 42%),
+        linear-gradient(135deg, #fff1f3 0%, #ffe3e8 55%, #ffd9df 100%);
+    border: 1px solid #f6c1cb;
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(120, 20, 38, 0.14);
+    padding: 1.45rem 1.5rem;
+}
+
+.dashboard-header::before,
+.dashboard-header::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    z-index: -1;
+}
+
+.dashboard-header::before {
+    width: 260px;
+    height: 260px;
+    right: -90px;
+    top: -110px;
+    background: linear-gradient(140deg, rgba(255, 149, 167, 0.38), rgba(255, 149, 167, 0));
+}
+
+.dashboard-header::after {
+    width: 230px;
+    height: 230px;
+    left: -90px;
+    bottom: -130px;
+    background: linear-gradient(140deg, rgba(255, 171, 185, 0.36), rgba(255, 171, 185, 0));
+}
+
+/* Header text styling */
+.dashboard-header h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.35rem);
+    font-weight: 800;
+    color: #7d1d30;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+}
+
+.dashboard-summary {
+    margin: 0.55rem 0 0;
+    color: #8e3c4d;
+    max-width: 64ch;
+    line-height: 1.5;
+    font-size: 1.03rem;
+}
+
+/* Card shell shared by all chart sections */
+.chart-card {
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+}
+
+.chart-card h2 {
+    margin: 0 0 0.8rem;
+    font-size: 1.05rem;
+}
+
+/* Make SVG charts fully responsive inside each card */
+#bar-chart,
+#line-chart,
+#donut-chart {
+    width: 100%;
+}
+
+#bar-chart svg,
+#line-chart svg,
+#donut-chart svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Axis and tick styling for visual consistency */
+.axis path,
+.axis line,
+.domain,
+.tick line {
+    stroke: #a9bac9;
+}
+
+.tick text {
+    fill: #476177;
+    font-size: 12px;
+}
+
+/* Mobile adjustments keep spacing readable on small screens */
+@media (max-width: 760px) {
+    .dashboard {
+        margin: 1.2rem auto;
+        gap: 0.9rem;
+    }
+
+    .dashboard-header {
+        padding: 1.15rem 1rem;
+        border-radius: 16px;
+    }
+
+    .dashboard-summary {
+        font-size: 0.99rem;
+    }
+}
