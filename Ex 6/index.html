@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Data Visualization Dashboard - Exercise 6</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/visualisation.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>TV Data Visualization Dashboard</h1>
+            <p class="subtitle">Energy Consumption & Rating Analysis by Screen Technology</p>
+        </header>
+
+        <main>
+            <section class="filter-section">
+                <h2>Screen Technology Filter</h2>
+                <div id="filters_screen" class="filter-controls"></div>
+            </section>
+
+            <section class="charts-container">
+                <div class="chart-wrapper">
+                    <h3>Energy Consumption Distribution</h3>
+                    <div id="histogram" class="responsive-svg-container"></div>
+                </div>
+
+                <div class="chart-wrapper">
+                    <h3>Star Rating vs Energy Consumption</h3>
+                    <div id="scatterplot" class="responsive-svg-container"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- script order matters -->
+    <script src="js/shared-constants.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/histogram.js"></script>
+    <script src="js/scatterplot.js"></script>
+    <script src="js/load-data.js"></script>
+</body>
+</html>
